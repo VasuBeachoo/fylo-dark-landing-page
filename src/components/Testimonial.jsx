@@ -1,5 +1,5 @@
 const Testimonial = ({
-  block = "testimonial",
+  block = "testimonials",
   testimonialText,
   imgSrc,
   imgAlt,

@@ -1,0 +1,124 @@
+///////////////////////////////////////
+// IMPORTS ////////////////////////////
+
+///////////////////////////////////////
+// VARIABLES //////////////////////////
+
+///////////////////////////////////////
+// MIXINS /////////////////////////////
+
+@mixin flex($direction, $justify, $align) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+///////////////////////////////////////
+// FUNCTIONS //////////////////////////
+
+///////////////////////////////////////
+// STYLES /////////////////////////////
+
+body {
+  margin: 0;
+}
+
+.page-container {
+  @include flex(row, center, flex-start);
+  min-height: 100vh;
+}
+
+.page {
+  @include flex(column, center, flex-start);
+  width: 100%;
+}
+
+.header {
+  @include flex(row, space-between, center);
+  width: 100%;
+
+  &__links {
+    @include flex(row, space-between, center);
+  }
+}
+
+.intro {
+  @include flex(column, flex-start, center);
+  width: 100%;
+}
+
+.features {
+  @include flex(column, flex-start, center);
+  width: 100%;
+  text-align: center;
+
+  &__row {
+    @include flex(row, flex-start, center);
+  }
+}
+
+.highlight {
+  @include flex(row, flex-start, flex-start);
+  width: 100%;
+
+  &__text-container {
+    @include flex(column, flex-start, flex-start);
+  }
+}
+
+.testimonials {
+  @include flex(row, space-around, center);
+  width: 100%;
+
+  &__testimonial {
+    @include flex(column, flex-start, flex-start);
+  }
+
+  &__author {
+    @include flex(row, flex-start, center);
+  }
+
+  &__info {
+    @include flex(column, center, flex-start);
+  }
+}
+
+.cta {
+  @include flex(column, center, center);
+  width: 100%;
+
+  &__container {
+    @include flex(column, flex-start, center);
+  }
+
+  &__form-container {
+    @include flex(row, flex-start, flex-start);
+  }
+
+  &__email-input-container {
+    @include flex(column, flex-start, flex-start);
+  }
+}
+
+.footer {
+  @include flex(column, flex-start, flex-start);
+  width: 100%;
+
+  &__container {
+    @include flex(row, space-between, flex-start);
+    width: 100%;
+  }
+
+  &__column {
+    @include flex(column, flex-start, flex-start);
+  }
+
+  &__icon-text-container {
+    @include flex(row, flex-start, flex-start);
+  }
+
+  &__social-icons {
+    @include flex(row, space-between, flex-start);
+  }
+}

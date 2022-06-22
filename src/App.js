@@ -1,3 +1,4 @@
+import "./css/style.css";
 import introImg from "./assets/illustration-intro.png";
 import accessImg from "./assets/icon-access-anywhere.svg";
 import securityImg from "./assets/icon-security.svg";

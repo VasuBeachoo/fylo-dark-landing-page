@@ -19,11 +19,26 @@ const Footer = () => {
       <img src={Logo} alt="logo" className={`${block}__logo`} />
       <div className={`${block}__container`}>
         <div className={`${block}__column`}>
-          <IconText block={block} iconSrc={LocationIcon} iconAlt="location" />
+          <IconText
+            block={block}
+            iconSrc={LocationIcon}
+            iconAlt="location"
+            paragraphText="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua"
+          />
         </div>
         <div className={`${block}__column`}>
-          <IconText block={block} iconSrc={PhoneIcon} iconAlt="phone" />
-          <IconText block={block} iconSrc={EmailIcon} iconAlt="email" />
+          <IconText
+            block={block}
+            iconSrc={PhoneIcon}
+            iconAlt="phone"
+            paragraphText="+1-543-123-4567"
+          />
+          <IconText
+            block={block}
+            iconSrc={EmailIcon}
+            iconAlt="email"
+            paragraphText="example@fylo.com"
+          />
         </div>
         <div className={`${block}__column`}>
           <Link block={block} text="About Us" />
