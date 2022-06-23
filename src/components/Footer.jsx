@@ -53,9 +53,18 @@ const Footer = () => {
         </div>
         <div className={`${block}__column`}>
           <div className={`${block}__social-icons`}>
-            <FontAwesomeIcon icon={faFacebookF} />
-            <FontAwesomeIcon icon={faTwitter} />
-            <FontAwesomeIcon icon={faInstagram} />
+            <FontAwesomeIcon
+              icon={faFacebookF}
+              className={`${block}__social-icon`}
+            />
+            <FontAwesomeIcon
+              icon={faTwitter}
+              className={`${block}__social-icon`}
+            />
+            <FontAwesomeIcon
+              icon={faInstagram}
+              className={`${block}__social-icon`}
+            />
           </div>
         </div>
       </div>

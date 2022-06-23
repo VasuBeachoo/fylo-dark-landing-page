@@ -1,8 +1,24 @@
 ///////////////////////////////////////
 // IMPORTS ////////////////////////////
 
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Raleway:wght@400;700&display=swap");
+
 ///////////////////////////////////////
 // VARIABLES //////////////////////////
+
+$colors: (
+  Dark-Blue-Intro: hsl(217, 28%, 15%),
+  Dark-Blue-Main: hsl(218, 28%, 13%),
+  Dark-Blue-Footer: hsl(216, 53%, 9%),
+  Dark-Blue-Testimonial: hsl(219, 30%, 18%),
+  Cyan: hsl(176, 68%, 64%),
+  Blue: hsl(198, 60%, 50%),
+  Light-Red: hsl(0, 100%, 63%),
+  White: hsl(0, 0%, 100%),
+);
+
+$heading-font: "Raleway", sans-serif;
+$body-font: "Open Sans", sans-serif;
 
 ///////////////////////////////////////
 // MIXINS /////////////////////////////
@@ -14,8 +30,78 @@
   align-items: $align;
 }
 
+@mixin link($font-size: 16px) {
+  color: color(White);
+  font-family: $heading-font;
+  font-size: $font-size;
+  font-weight: 400;
+  text-decoration: none;
+  opacity: 0.55;
+  transition: 0.2s;
+
+  &:hover {
+    cursor: pointer;
+    opacity: 1;
+  }
+}
+
+@mixin heading($font-size: 24px) {
+  color: color(White);
+  font-family: $heading-font;
+  font-size: $font-size;
+  font-weight: 700;
+  line-height: $font-size * 1.5;
+  max-width: 600px;
+  margin: 0;
+}
+
+@mixin paragraph($font-size: 16px) {
+  color: color(White);
+  font-family: $body-font;
+  font-size: $font-size;
+  font-weight: 400;
+  opacity: 0.8;
+  letter-spacing: 0.2px;
+  line-height: $font-size * 1.75;
+  max-width: 550px;
+  margin: 0;
+}
+
+@mixin btn($width: 200px) {
+  width: $width;
+  background: linear-gradient(120deg, color(Cyan), color(Blue) 60%);
+  color: color(White);
+  font-family: $heading-font;
+  font-size: 16px;
+  font-weight: 700;
+  text-align: center;
+  letter-spacing: 0.5px;
+  padding: 18px;
+  border: none;
+  border-radius: 30px;
+  transition: 0.2s;
+
+  &:hover {
+    cursor: pointer;
+    filter: brightness(1.25);
+  }
+}
+
+@mixin error-msg() {
+  color: color(Light-Red);
+  font-family: $body-font;
+}
+
+@mixin social-icon() {
+  color: color(White);
+}
+
 ///////////////////////////////////////
 // FUNCTIONS //////////////////////////
+
+@function color($color-name) {
+  @return map-get($colors, $color-name);
+}
 
 ///////////////////////////////////////
 // STYLES /////////////////////////////
@@ -27,6 +113,7 @@ body {
 .page-container {
   @include flex(row, center, flex-start);
   min-height: 100vh;
+  background-color: color(Dark-Blue-Main);
 }
 
 .page {
@@ -36,25 +123,71 @@ body {
 
 .header {
   @include flex(row, space-between, center);
+  box-sizing: border-box;
   width: 100%;
+  padding: 60px;
+
+  &__logo {
+    width: 140px;
+  }
 
   &__links {
-    @include flex(row, space-between, center);
+    @include flex(row, space-around, center);
+    width: 260px;
+  }
+
+  &__link {
+    @include link(16px);
+
+    &:hover {
+      text-decoration: underline;
+    }
   }
 }
 
 .intro {
   @include flex(column, flex-start, center);
   width: 100%;
+  text-align: center;
+
+  &__img {
+    width: 600px;
+    margin: 20px 0 45px;
+  }
+
+  &__heading {
+    @include heading(34px);
+  }
+
+  &__paragraph {
+    @include paragraph(17px);
+    margin: 25px 0 30px 0;
+  }
+
+  &__btn {
+    @include btn(270px);
+  }
 }
 
 .features {
   @include flex(column, flex-start, center);
   width: 100%;
-  text-align: center;
 
   &__row {
     @include flex(row, flex-start, center);
+  }
+
+  &__feature {
+    @include flex(column, flex-start, center);
+    text-align: center;
+  }
+
+  &__heading {
+    @include heading();
+  }
+
+  &__paragraph {
+    @include paragraph();
   }
 }
 
@@ -65,6 +198,14 @@ body {
   &__text-container {
     @include flex(column, flex-start, flex-start);
   }
+
+  &__heading {
+    @include heading();
+  }
+
+  &__paragraph {
+    @include paragraph();
+  }
 }
 
 .testimonials {
@@ -73,6 +214,11 @@ body {
 
   &__testimonial {
     @include flex(column, flex-start, flex-start);
+    background-color: color(Dark-Blue-Testimonial);
+  }
+
+  &__testimonial-paragraph {
+    @include paragraph();
   }
 
   &__author {
@@ -82,14 +228,32 @@ body {
   &__info {
     @include flex(column, center, flex-start);
   }
+
+  &__name {
+    @include heading();
+  }
+
+  &__title {
+    @include paragraph();
+  }
 }
 
 .cta {
   @include flex(column, center, center);
   width: 100%;
+  background-color: color(Dark-Blue-Intro);
 
   &__container {
     @include flex(column, flex-start, center);
+    text-align: center;
+  }
+
+  &__heading {
+    @include heading();
+  }
+
+  &__paragraph {
+    @include paragraph();
   }
 
   &__form-container {
@@ -99,11 +263,16 @@ body {
   &__email-input-container {
     @include flex(column, flex-start, flex-start);
   }
+
+  &__error-msg {
+    @include error-msg();
+  }
 }
 
 .footer {
   @include flex(column, flex-start, flex-start);
   width: 100%;
+  background-color: color(Dark-Blue-Footer);
 
   &__container {
     @include flex(row, space-between, flex-start);
@@ -118,7 +287,19 @@ body {
     @include flex(row, flex-start, flex-start);
   }
 
+  &__paragraph {
+    @include paragraph();
+  }
+
+  &__link {
+    @include link();
+  }
+
   &__social-icons {
     @include flex(row, space-between, flex-start);
+  }
+
+  &__social-icon {
+    @include social-icon();
   }
 }

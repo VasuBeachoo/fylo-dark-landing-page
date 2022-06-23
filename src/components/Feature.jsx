@@ -1,5 +1,5 @@
 const Feature = ({
-  block = "feature",
+  block = "features",
   imgSrc,
   imgAlt,
   headingText,

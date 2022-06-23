@@ -8,7 +8,7 @@ const Testimonial = ({
 }) => {
   return (
     <div className={`${block}__testimonial`}>
-      <p className={`${block}__testimonial`}>{testimonialText}</p>
+      <p className={`${block}__testimonial-paragraph`}>{testimonialText}</p>
       <div className={`${block}__author`}>
         <img src={imgSrc} alt={imgAlt} className={`${block}__img`} />
         <div className={`${block}__info`}>
