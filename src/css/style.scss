@@ -94,7 +94,7 @@ $social-icon-size: 16px;
 
   &:hover {
     cursor: pointer;
-    filter: brightness(1.25);
+    filter: brightness(1.3);
   }
 }
 
@@ -107,7 +107,15 @@ $social-icon-size: 16px;
   padding: 14px 20px;
 
   &::placeholder {
-    opacity: 0.7;
+    opacity: 0.65;
+  }
+
+  &--valid {
+    outline: none;
+  }
+
+  &--invalid {
+    outline: 2px solid color(Light-Red);
   }
 }
 
@@ -115,7 +123,7 @@ $social-icon-size: 16px;
   color: color(Light-Red);
   font-family: $body-font;
   font-size: $font-size;
-  font-weight: 700;
+  font-weight: 400;
   margin: 0;
 
   &--hidden {
@@ -357,7 +365,6 @@ body {
     background-color: color(Dark-Blue-Intro);
     text-align: center;
     width: 750px;
-    height: 220px;
     border-radius: $block-border-radius;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
     padding: 40px 30px;
@@ -381,6 +388,7 @@ body {
 
   &__email-input-container {
     @include flex(column, flex-start, flex-start);
+    height: 70px;
     margin: 0 20px 0 0;
   }
 
@@ -389,8 +397,8 @@ body {
   }
 
   &__error-msg {
-    @include error-msg(11.5px);
-    margin: 7px 0 0 15px;
+    @include error-msg(12px);
+    margin: 8px 0 0 15px;
   }
 
   &__submit-input {
