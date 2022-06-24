@@ -1,9 +1,5 @@
 const Link = ({ block, text }) => {
-  return (
-    <a href="/" className={`${block}__link`}>
-      {text}
-    </a>
-  );
+  return <p className={`${block}__link`}>{text}</p>;
 };
 
 export default Link;
