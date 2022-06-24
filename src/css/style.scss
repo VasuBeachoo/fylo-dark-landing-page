@@ -22,6 +22,8 @@ $body-font: "Open Sans", sans-serif;
 
 $block-border-radius: 8px;
 
+$social-icon-size: 16px;
+
 ///////////////////////////////////////
 // MIXINS /////////////////////////////
 
@@ -87,6 +89,7 @@ $block-border-radius: 8px;
   padding: $padding;
   border: none;
   border-radius: 30px;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
   transition: 0.2s;
 
   &:hover {
@@ -124,8 +127,19 @@ $block-border-radius: 8px;
   }
 }
 
-@mixin social-icon() {
+@mixin social-icon($size: 18px) {
   color: color(White);
+  font-size: $size;
+  border: 1.5px solid color(White);
+  border-radius: 100%;
+  padding: 8px 11px;
+  transition: 0.2s;
+
+  &:hover {
+    cursor: pointer;
+    color: color(Cyan);
+    border-color: color(Cyan);
+  }
 }
 
 ///////////////////////////////////////
@@ -169,7 +183,7 @@ body {
   }
 
   &__link {
-    @include link(16px);
+    @include link(17px);
 
     &:hover {
       text-decoration: underline;
@@ -233,7 +247,7 @@ body {
 
 .highlight {
   @include flex(row, flex-start, center);
-  @include section(155px);
+  @include section(175px);
   box-sizing: border-box;
   padding: 0 50px;
 
@@ -285,7 +299,7 @@ body {
 
 .testimonials {
   @include flex(row, center, center);
-  @include section(100px);
+  @include section(0);
 
   &__icon {
     position: absolute;
@@ -336,16 +350,19 @@ body {
 .cta {
   @include flex(column, center, center);
   @include section();
+  height: 200px;
 
   &__container {
     @include flex(column, flex-start, center);
     background-color: color(Dark-Blue-Intro);
     text-align: center;
     width: 750px;
-    height: 215px;
+    height: 220px;
     border-radius: $block-border-radius;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
     padding: 40px 30px;
+    transform: translate(0, 190px);
+    z-index: 1;
   }
 
   &__heading {
@@ -355,7 +372,7 @@ body {
   &__paragraph {
     @include paragraph(16px);
     max-width: 650px;
-    margin: 14px 0 24px;
+    margin: 14px 0 28px;
   }
 
   &__form-container {
@@ -385,8 +402,15 @@ body {
 
 .footer {
   @include flex(column, flex-start, flex-start);
+  box-sizing: border-box;
   width: 100%;
   background-color: color(Dark-Blue-Footer);
+  padding: 200px 80px 40px;
+
+  &__logo {
+    width: 105px;
+    margin: 0 0 40px 0;
+  }
 
   &__container {
     @include flex(row, space-between, flex-start);
@@ -399,21 +423,30 @@ body {
 
   &__icon-text-container {
     @include flex(row, flex-start, flex-start);
+    margin: 0 0 15px 0;
+  }
+
+  &__icon {
+    width: 18px;
+    margin: 5px 20px 0 0;
   }
 
   &__paragraph {
-    @include paragraph();
+    @include paragraph(14px);
+    max-width: 300px;
   }
 
   &__link {
-    @include link();
+    @include link(15.5px);
+    margin: 0 0 20px 0;
   }
 
   &__social-icons {
-    @include flex(row, space-between, flex-start);
+    @include flex(row, space-around, flex-start);
+    width: $social-icon-size * 10;
   }
 
   &__social-icon {
-    @include social-icon();
+    @include social-icon($social-icon-size);
   }
 }
