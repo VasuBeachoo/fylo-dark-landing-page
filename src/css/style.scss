@@ -20,6 +20,8 @@ $colors: (
 $heading-font: "Raleway", sans-serif;
 $body-font: "Open Sans", sans-serif;
 
+$block-border-radius: 8px;
+
 ///////////////////////////////////////
 // MIXINS /////////////////////////////
 
@@ -73,16 +75,16 @@ $body-font: "Open Sans", sans-serif;
   margin: 0;
 }
 
-@mixin btn($width: 200px) {
+@mixin btn($width: 200px, $font-size: 16px, $padding: 16px) {
   width: $width;
   background: linear-gradient(120deg, color(Cyan), color(Blue) 60%);
   color: color(White);
   font-family: $heading-font;
-  font-size: 16px;
+  font-size: $font-size;
   font-weight: 700;
   text-align: center;
   letter-spacing: 0.5px;
-  padding: 18px;
+  padding: $padding;
   border: none;
   border-radius: 30px;
   transition: 0.2s;
@@ -93,9 +95,33 @@ $body-font: "Open Sans", sans-serif;
   }
 }
 
-@mixin error-msg() {
+@mixin email-input($width: 400px) {
+  width: $width;
+  font-family: $body-font;
+  border: none;
+  border-radius: 30px;
+  letter-spacing: 0.2px;
+  padding: 14px 20px;
+
+  &::placeholder {
+    opacity: 0.7;
+  }
+}
+
+@mixin error-msg($font-size: 15px) {
   color: color(Light-Red);
   font-family: $body-font;
+  font-size: $font-size;
+  font-weight: 700;
+  margin: 0;
+
+  &--hidden {
+    display: none;
+  }
+
+  &--visible {
+    display: block;
+  }
 }
 
 @mixin social-icon() {
@@ -171,7 +197,7 @@ body {
   }
 
   &__btn {
-    @include btn(270px);
+    @include btn(270px, 16px, 18px);
   }
 }
 
@@ -271,12 +297,11 @@ body {
     @include flex(column, flex-start, flex-start);
     background-color: color(Dark-Blue-Testimonial);
     width: 280px;
-    border-radius: 8px;
+    border-radius: $block-border-radius;
     padding: 30px;
     margin: 0 20px;
     z-index: 1;
-    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
-      rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
   }
 
   &__testimonial-paragraph {
@@ -311,19 +336,26 @@ body {
 .cta {
   @include flex(column, center, center);
   @include section();
-  background-color: color(Dark-Blue-Intro);
 
   &__container {
     @include flex(column, flex-start, center);
+    background-color: color(Dark-Blue-Intro);
     text-align: center;
+    width: 750px;
+    height: 215px;
+    border-radius: $block-border-radius;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    padding: 40px 30px;
   }
 
   &__heading {
-    @include heading();
+    @include heading(32px);
   }
 
   &__paragraph {
-    @include paragraph();
+    @include paragraph(16px);
+    max-width: 650px;
+    margin: 14px 0 24px;
   }
 
   &__form-container {
@@ -332,10 +364,22 @@ body {
 
   &__email-input-container {
     @include flex(column, flex-start, flex-start);
+    margin: 0 20px 0 0;
+  }
+
+  &__email-input {
+    @include email-input();
   }
 
   &__error-msg {
-    @include error-msg();
+    @include error-msg(11.5px);
+    margin: 7px 0 0 15px;
+  }
+
+  &__submit-input {
+    @include btn(200px);
+    font-size: 14px;
+    padding: 14px;
   }
 }
 
