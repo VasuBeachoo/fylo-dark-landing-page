@@ -177,7 +177,7 @@ body {
 
 .features {
   @include flex(column, flex-start, center);
-  @include section(120px);
+  @include section(100px);
 
   &__row {
     @include flex(row, flex-start, center);
@@ -206,19 +206,54 @@ body {
 }
 
 .highlight {
-  @include flex(row, flex-start, flex-start);
-  @include section();
+  @include flex(row, flex-start, center);
+  @include section(150px);
+  box-sizing: border-box;
+  padding: 0 50px;
+
+  &__img {
+    width: 550px;
+    margin: 0 50px 0 0;
+  }
 
   &__text-container {
     @include flex(column, flex-start, flex-start);
   }
 
   &__heading {
-    @include heading();
+    @include heading(35px);
+    width: 70%;
   }
 
   &__paragraph {
-    @include paragraph();
+    @include paragraph(16px);
+    margin: 14px 0 0 0;
+  }
+
+  &__link-container {
+    @include flex(row, flex-start, center);
+    margin: 23px 0 0 0;
+  }
+
+  &__link {
+    color: color(Cyan);
+    font-family: $heading-font;
+    font-size: 16px;
+    font-weight: 400;
+    text-decoration: underline;
+    text-underline-offset: 7px;
+    letter-spacing: 0.2px;
+    margin: 0 5px 0 0;
+    transition: 0.2s;
+
+    &:hover {
+      cursor: pointer;
+      color: color(White);
+    }
+  }
+
+  &__icon {
+    width: 21px;
   }
 }
 
