@@ -265,7 +265,7 @@ body {
       -ms-flex-align: center;
           align-items: center;
   width: 100%;
-  margin: 0 0 150px 0;
+  margin: 0 0 155px 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   padding: 0 50px;
@@ -364,13 +364,21 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   width: 100%;
   margin: 0 0 100px 0;
+}
+
+.testimonials__icon {
+  position: absolute;
+  -webkit-transform: translate(-532px, -121px);
+          transform: translate(-532px, -121px);
+  width: 65px;
 }
 
 .testimonials__testimonial {
@@ -388,18 +396,26 @@ body {
       -ms-flex-align: start;
           align-items: flex-start;
   background-color: #202a3c;
+  width: 280px;
+  border-radius: 8px;
+  padding: 30px;
+  margin: 0 20px;
+  z-index: 1;
+  -webkit-box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+          box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
 }
 
 .testimonials__testimonial-paragraph {
   color: white;
   font-family: "Open Sans", sans-serif;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 400;
   opacity: 0.8;
   letter-spacing: 0.2px;
-  line-height: 28px;
+  line-height: 24.5px;
   max-width: 550px;
   margin: 0;
+  margin: 0 0 20px 0;
 }
 
 .testimonials__author {
@@ -416,6 +432,12 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+.testimonials__img {
+  width: 35px;
+  border-radius: 100%;
+  margin: 0 10px 0 0;
 }
 
 .testimonials__info {
@@ -437,10 +459,10 @@ body {
 .testimonials__name {
   color: white;
   font-family: "Raleway", sans-serif;
-  font-size: 24px;
+  font-size: 15px;
   font-weight: 700;
   letter-spacing: 0.1px;
-  line-height: 36px;
+  line-height: 22.5px;
   max-width: 600px;
   margin: 0;
 }
@@ -448,13 +470,14 @@ body {
 .testimonials__title {
   color: white;
   font-family: "Open Sans", sans-serif;
-  font-size: 16px;
+  font-size: 11px;
   font-weight: 400;
   opacity: 0.8;
   letter-spacing: 0.2px;
-  line-height: 28px;
+  line-height: 19.25px;
   max-width: 550px;
   margin: 0;
+  opacity: 0.6;
 }
 
 .cta {

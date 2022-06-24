@@ -6,6 +6,7 @@ import collabImg from "./assets/icon-collaboration.svg";
 import anyFileImg from "./assets/icon-any-file.svg";
 import productiveImg from "./assets/illustration-stay-productive.png";
 import arrowIcon from "./assets/icon-arrow.svg";
+import quotesIcon from "./assets/bg-quotes.png";
 import profileOne from "./assets/profile-1.jpg";
 import profileTwo from "./assets/profile-2.jpg";
 import profileThree from "./assets/profile-3.jpg";
@@ -89,6 +90,7 @@ const App = () => {
           </div>
         </section>
         <section className="testimonials">
+          <img src={quotesIcon} alt="quotes" className="testimonials__icon" />
           <Testimonial
             testimonialText="Fylo has improved our team productivity by an order of magnitude. Since making the switch, our team has become a well-oiled collaboration machine."
             imgSrc={profileOne}

@@ -207,7 +207,7 @@ body {
 
 .highlight {
   @include flex(row, flex-start, center);
-  @include section(150px);
+  @include section(155px);
   box-sizing: border-box;
   padding: 0 50px;
 
@@ -258,20 +258,40 @@ body {
 }
 
 .testimonials {
-  @include flex(row, space-around, center);
-  @include section();
+  @include flex(row, center, center);
+  @include section(100px);
+
+  &__icon {
+    position: absolute;
+    transform: translate(-532px, -121px);
+    width: 65px;
+  }
 
   &__testimonial {
     @include flex(column, flex-start, flex-start);
     background-color: color(Dark-Blue-Testimonial);
+    width: 280px;
+    border-radius: 8px;
+    padding: 30px;
+    margin: 0 20px;
+    z-index: 1;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+      rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
   }
 
   &__testimonial-paragraph {
-    @include paragraph();
+    @include paragraph(14px);
+    margin: 0 0 20px 0;
   }
 
   &__author {
     @include flex(row, flex-start, center);
+  }
+
+  &__img {
+    width: 35px;
+    border-radius: 100%;
+    margin: 0 10px 0 0;
   }
 
   &__info {
@@ -279,11 +299,12 @@ body {
   }
 
   &__name {
-    @include heading();
+    @include heading(15px);
   }
 
   &__title {
-    @include paragraph();
+    @include paragraph(11px);
+    opacity: 0.6;
   }
 }
 
