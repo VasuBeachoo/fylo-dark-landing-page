@@ -45,11 +45,17 @@ $body-font: "Open Sans", sans-serif;
   }
 }
 
+@mixin section($margin-bottom: 100px) {
+  width: 100%;
+  margin: 0 0 $margin-bottom 0;
+}
+
 @mixin heading($font-size: 24px) {
   color: color(White);
   font-family: $heading-font;
   font-size: $font-size;
   font-weight: 700;
+  letter-spacing: 0.1px;
   line-height: $font-size * 1.5;
   max-width: 600px;
   margin: 0;
@@ -147,7 +153,7 @@ body {
 
 .intro {
   @include flex(column, flex-start, center);
-  width: 100%;
+  @include section(90px);
   text-align: center;
 
   &__img {
@@ -171,7 +177,7 @@ body {
 
 .features {
   @include flex(column, flex-start, center);
-  width: 100%;
+  @include section(120px);
 
   &__row {
     @include flex(row, flex-start, center);
@@ -180,20 +186,28 @@ body {
   &__feature {
     @include flex(column, flex-start, center);
     text-align: center;
+    margin: 40px 0 50px 0;
+  }
+
+  &__img {
+    width: 70px;
+    margin: 0 0 23px 0;
   }
 
   &__heading {
-    @include heading();
+    @include heading(23px);
+    margin: 0 0 5px 0;
   }
 
   &__paragraph {
-    @include paragraph();
+    @include paragraph(14px);
+    width: 65%;
   }
 }
 
 .highlight {
   @include flex(row, flex-start, flex-start);
-  width: 100%;
+  @include section();
 
   &__text-container {
     @include flex(column, flex-start, flex-start);
@@ -210,7 +224,7 @@ body {
 
 .testimonials {
   @include flex(row, space-around, center);
-  width: 100%;
+  @include section();
 
   &__testimonial {
     @include flex(column, flex-start, flex-start);
@@ -240,7 +254,7 @@ body {
 
 .cta {
   @include flex(column, center, center);
-  width: 100%;
+  @include section();
   background-color: color(Dark-Blue-Intro);
 
   &__container {
