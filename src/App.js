@@ -36,7 +36,7 @@ const App = () => {
           <Button block="intro" text="Get Started" />
         </section>
         <section className="features">
-          <div className="features__row">
+          <div className="features__container">
             <Feature
               imgSrc={accessImg}
               imgAlt="access"
@@ -50,7 +50,7 @@ const App = () => {
               paragraphText="2-factor authentication and user-controlled encryption are just a couple of the security features we allow to help secure your files."
             />
           </div>
-          <div className="features__row">
+          <div className="features__container">
             <Feature
               imgSrc={collabImg}
               imgAlt="collaboration"

@@ -24,6 +24,8 @@ $block-border-radius: 8px;
 
 $social-icon-size: 16px;
 
+$mobile-width: 1150px;
+
 ///////////////////////////////////////
 // MIXINS /////////////////////////////
 
@@ -63,6 +65,10 @@ $social-icon-size: 16px;
   line-height: $font-size * 1.5;
   max-width: 600px;
   margin: 0;
+
+  @include mobile() {
+    max-width: 400px;
+  }
 }
 
 @mixin paragraph($font-size: 16px) {
@@ -75,6 +81,10 @@ $social-icon-size: 16px;
   line-height: $font-size * 1.75;
   max-width: 550px;
   margin: 0;
+
+  @include mobile() {
+    max-width: 360px;
+  }
 }
 
 @mixin btn($width: 200px, $font-size: 16px, $padding: 16px) {
@@ -147,6 +157,12 @@ $social-icon-size: 16px;
     cursor: pointer;
     color: color(Cyan);
     border-color: color(Cyan);
+  }
+}
+
+@mixin mobile() {
+  @media (max-width: $mobile-width) {
+    @content;
   }
 }
 
@@ -227,7 +243,7 @@ body {
   @include flex(column, flex-start, center);
   @include section(100px);
 
-  &__row {
+  &__container {
     @include flex(row, flex-start, center);
   }
 
@@ -456,5 +472,120 @@ body {
 
   &__social-icon {
     @include social-icon($social-icon-size);
+  }
+}
+
+@include mobile() {
+  .header {
+    padding: 50px;
+
+    &__logo {
+      width: 100px;
+    }
+
+    &__links {
+      width: 190px;
+    }
+
+    &__link {
+      font-size: 15px;
+    }
+  }
+
+  .intro {
+    margin: 0 0 80px 0;
+
+    &__img {
+      width: 340px;
+      margin: 0 0 60px 0;
+    }
+  }
+
+  .features {
+    margin: 0 0 60px 0;
+
+    &__container {
+      @include flex(column, flex-start, center);
+    }
+
+    &__feature {
+      margin: 34px 0;
+    }
+  }
+
+  .highlight {
+    @include flex(column, flex-start, center);
+    margin: 0 0 100px 0;
+
+    &__img {
+      width: 340px;
+      margin: 0 0 50px 0;
+    }
+
+    &__text-container {
+      align-items: flex-start;
+    }
+
+    &__heading {
+      width: 100%;
+    }
+  }
+
+  .testimonials {
+    @include flex(column, flex-start, center);
+    margin: 0 0 80px 0;
+
+    &__icon {
+      width: 50px;
+      transform: translate(-154px, -14px);
+    }
+
+    &__testimonial {
+      margin: 15px 0;
+    }
+  }
+
+  .cta {
+    &__container {
+      width: 340px;
+    }
+
+    &__form-container {
+      @include flex(column, flex-start, center);
+    }
+
+    &__email-input-container {
+      margin: 0 0 14px 0;
+    }
+
+    &__email-input {
+      width: 300px;
+    }
+
+    &__submit-input {
+      width: 335px;
+    }
+  }
+
+  .footer {
+    padding: 300px 50px 40px;
+
+    &__logo {
+      width: 150px;
+      margin: 0 0 25px 0;
+    }
+
+    &__container {
+      @include flex(column, flex-start, flex-start);
+    }
+
+    &__column {
+      width: 100%;
+      margin: 15px 0;
+    }
+
+    &__social-icons {
+      align-self: center;
+    }
   }
 }
